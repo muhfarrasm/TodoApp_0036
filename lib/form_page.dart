@@ -15,4 +15,11 @@ class _FormPageState extends State<FormPage> {
   List<DateTime?> deadlines = [];
   String? dateError;
   DateTime? selectedDate;
+
+  // Fungsi Format Waktu (HH:mm)
+  String formatTime(int hour, int minute) {
+    return '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}';
+  }
+
+  
 }
