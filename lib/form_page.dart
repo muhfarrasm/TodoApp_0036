@@ -35,6 +35,23 @@ class _FormPageState extends State<FormPage> {
         context: context,
         initialTime: TimeOfDay.fromDateTime(DateTime.now()),
       );
+      
+      if (pickedTime != null) {
+        setState(() {
+          selectedDate = DateTime(
+            pickedDate.year,
+            pickedDate.month,
+            pickedDate.day,
+            pickedTime.hour,
+            pickedTime.minute,
+          );
+          dateError = null; // Hapus error jika berhasil memilih tanggal
+        });
+
+
+    }
+
+
 
   }
 
