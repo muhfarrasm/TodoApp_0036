@@ -29,6 +29,13 @@ class _FormPageState extends State<FormPage> {
       firstDate: DateTime(2025),
       lastDate: DateTime(2030),
     );
+
+    if (pickedDate != null) {
+      final TimeOfDay? pickedTime = await showTimePicker(
+        context: context,
+        initialTime: TimeOfDay.fromDateTime(DateTime.now()),
+      );
+
   }
 
   
