@@ -8,5 +8,11 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  
+  final TextEditingController taskController = TextEditingController();
+  final key = GlobalKey<FormState>();
+  List<String> daftarTask = [];
+  List<bool> isCheckedList = [];
+  List<DateTime?> deadlines = [];
+  String? dateError;
+  DateTime? selectedDate;
 }
