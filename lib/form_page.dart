@@ -123,6 +123,16 @@ class _FormPageState extends State<FormPage> {
                         children: [
                           const Text('Task Date :',
                               style: TextStyle(fontWeight: FontWeight.bold)),
+                              Text(
+                            selectedDate != null
+                                ? '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year} ${formatTime(selectedDate!.hour, selectedDate!.minute)}'
+                                : 'No date selected',
+                            style: TextStyle(
+                              color: selectedDate == null
+                                  ? Colors.red
+                                  : Colors.black,
+                            ),
+                          ),
                         ]
                       )]
               )
