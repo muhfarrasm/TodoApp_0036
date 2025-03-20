@@ -35,7 +35,7 @@ class _FormPageState extends State<FormPage> {
         context: context,
         initialTime: TimeOfDay.fromDateTime(DateTime.now()),
       );
-      
+
       if (pickedTime != null) {
         setState(() {
           selectedDate = DateTime(
@@ -47,12 +47,17 @@ class _FormPageState extends State<FormPage> {
           );
           dateError = null; // Hapus error jika berhasil memilih tanggal
         });
-
-
+      }
     }
-
-
-
+  }
+  void addTask() {
+  if (taskController.text.isEmpty || selectedDate == null) {
+    setState(() {
+      dateError = selectedDate == null ? "Please select a date" : null;
+    });
+    return;
+  }
+  
   }
 
   
