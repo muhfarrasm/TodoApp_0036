@@ -133,6 +133,14 @@ class _FormPageState extends State<FormPage> {
                                   : Colors.black,
                             ),
                           ),
+                          if (dateError != null)
+                            Text(
+                              dateError!,
+                              style: const TextStyle(
+                                  color: Colors.red, fontSize: 12),
+                            ),
+                        ],
+                      ),
                         ]
                       )]
               )
