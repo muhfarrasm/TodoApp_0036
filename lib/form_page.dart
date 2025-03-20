@@ -106,7 +106,7 @@ class _FormPageState extends State<FormPage> {
           ),
         ],
       ),
-       body: Container(
+      body: Container(
         color: Colors.white,
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -122,23 +122,28 @@ class _FormPageState extends State<FormPage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Task Date :',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          const Text(
+                            'Task Date :',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           Text(
                             selectedDate != null
                                 ? '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year} ${formatTime(selectedDate!.hour, selectedDate!.minute)}'
                                 : 'No date selected',
                             style: TextStyle(
-                              color: selectedDate == null
-                                  ? Colors.red
-                                  : Colors.black,
+                              color:
+                                  selectedDate == null
+                                      ? Colors.red
+                                      : Colors.black,
                             ),
                           ),
                           if (dateError != null)
                             Text(
                               dateError!,
                               style: const TextStyle(
-                                  color: Colors.red, fontSize: 12),
+                                color: Colors.red,
+                                fontSize: 12,
+                              ),
                             ),
                         ],
                       ),
@@ -180,7 +185,10 @@ class _FormPageState extends State<FormPage> {
               ),
             ),
             const SizedBox(height: 20),
-
-
+         
+          ],
+        ),
+      ),
+    );
   }
 }
