@@ -114,6 +114,12 @@ class _FormPageState extends State<FormPage> {
              Form(
               key: key,
               child: Column(
+                 // Tanggal dan Waktu
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                      )]
               )
              )
 
