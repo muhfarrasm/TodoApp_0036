@@ -106,6 +106,15 @@ class _FormPageState extends State<FormPage> {
           ),
         ],
       ),
+      body: Container(
+        color: Colors.white,
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+
+          ]
+        )
+      )
 
   }
 }
