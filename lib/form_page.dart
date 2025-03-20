@@ -21,7 +21,7 @@ class _FormPageState extends State<FormPage> {
     return '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}';
   }
 
-   // Fungsi Pilih Tanggal dan Waktu
+  // Fungsi Pilih Tanggal dan Waktu
   Future<void> _selectDate() async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -50,15 +50,21 @@ class _FormPageState extends State<FormPage> {
       }
     }
   }
-  void addTask() {
-  if (taskController.text.isEmpty || selectedDate == null) {
-    setState(() {
-      dateError = selectedDate == null ? "Please select a date" : null;
-    });
-    return;
-  }
-  
-  }
 
-  
+  void addTask() {
+    if (taskController.text.isEmpty || selectedDate == null) {
+      setState(() {
+        dateError = selectedDate == null ? "Please select a date" : null;
+      });
+      return;
+    }
+    setState(() {
+      daftarTask.add(taskController.text);
+      isCheckedList.add(false);
+      deadlines.add(selectedDate);
+      selectedDate = null;
+      taskController.clear();
+      dateError = null;
+    });
+  }
 }
