@@ -66,5 +66,16 @@ class _FormPageState extends State<FormPage> {
       taskController.clear();
       dateError = null;
     });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text(
+          'Task successfully added!',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.green,
+        duration: const Duration(seconds: 2),
+      ),
+    );
   }
 }
