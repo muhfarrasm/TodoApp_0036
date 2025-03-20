@@ -185,7 +185,55 @@ class _FormPageState extends State<FormPage> {
               ),
             ),
             const SizedBox(height: 20),
-         
+            Expanded(
+              child: ListView.builder(
+                itemCount: daftarTask.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    padding: const EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.indigo[100],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              daftarTask[index],
+                              style: const TextStyle(fontSize: 15),
+                            ),
+                            Text(
+                              "Deadline: ${deadlines[index] != null ? '${deadlines[index]!.day}/${deadlines[index]!.month}/${deadlines[index]!.year} ${formatTime(deadlines[index]!.hour, deadlines[index]!.minute)}' : 'No date selected'}",
+                            ),
+                            Text(
+                              isCheckedList[index] ? "Done" : "Not Done",
+                              style: TextStyle(
+                                color:
+                                    isCheckedList[index]
+                                        ? Colors.green
+                                        : Colors.red,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Checkbox(
+                          value: isCheckedList[index],
+                          onChanged: (bool? value) {
+                            setState(() {
+                              isCheckedList[index] = value ?? false;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
