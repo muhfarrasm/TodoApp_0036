@@ -106,15 +106,16 @@ class _FormPageState extends State<FormPage> {
           ),
         ],
       ),
-      body: Container(
+       body: Container(
         color: Colors.white,
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-             Form(
+            Form(
               key: key,
               child: Column(
-                 // Tanggal dan Waktu
+                children: [
+                  // Tanggal dan Waktu
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -123,7 +124,7 @@ class _FormPageState extends State<FormPage> {
                         children: [
                           const Text('Task Date :',
                               style: TextStyle(fontWeight: FontWeight.bold)),
-                              Text(
+                          Text(
                             selectedDate != null
                                 ? '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year} ${formatTime(selectedDate!.hour, selectedDate!.minute)}'
                                 : 'No date selected',
@@ -141,15 +142,45 @@ class _FormPageState extends State<FormPage> {
                             ),
                         ],
                       ),
-                        ]
-                      )]
-              )
-             )
+                      IconButton(
+                        onPressed: _selectDate,
+                        icon: const Icon(Icons.date_range, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
 
+                  // Input Tugas
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: taskController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a task';
+                            }
+                            return null;
+                          },
+                          decoration: const InputDecoration(
+                            labelText: "Add Task",
+                            hintText: "Input Task",
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      OutlinedButton(
+                        onPressed: addTask,
+                        child: const Text('Submit'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
 
-          ]
-        )
-      )
 
   }
 }
